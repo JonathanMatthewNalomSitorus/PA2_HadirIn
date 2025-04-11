@@ -1,18 +1,18 @@
-import 'package:aplikasi_hadirin/pages/guru/riwayat_kehadiran_guru.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
+import 'package:aplikasi_hadirin/pages/guru/rekapitulasi_guru.dart';
 import 'package:aplikasi_hadirin/pages/guru/profil_guru.dart';
-import 'package:aplikasi_hadirin/pages/guru/jadwal_kehadiran_guru.dart';
 import 'package:aplikasi_hadirin/pages/guru/homepage_guru.dart';
+import 'package:aplikasi_hadirin/pages/guru/jadwal_kehadiran_guru.dart';
 
-class RekapitulasiGuru extends StatefulWidget {
-  const RekapitulasiGuru({super.key});
+class RiwayatKehadiranGuru extends StatefulWidget {
+  const RiwayatKehadiranGuru({super.key});
 
   @override
-  State<RekapitulasiGuru> createState() => _RekapitulasiGuruState();
+  State<RiwayatKehadiranGuru> createState() => _RiwayatKehadiranGuruState();
 }
 
-class _RekapitulasiGuruState extends State<RekapitulasiGuru> {
+class _RiwayatKehadiranGuruState extends State<RiwayatKehadiranGuru> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -41,7 +41,7 @@ class _RekapitulasiGuruState extends State<RekapitulasiGuru> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.grey,
       body: Stack(
         children: [
           Container(

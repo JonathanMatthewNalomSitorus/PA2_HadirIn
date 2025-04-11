@@ -1,6 +1,9 @@
+import 'package:aplikasi_hadirin/pages/guru/riwayat_kehadiran_guru.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:aplikasi_hadirin/pages/guru/rekapitulasi_guru.dart';
+import 'package:aplikasi_hadirin/pages/guru/profil_guru.dart';
+import 'package:aplikasi_hadirin/pages/guru/jadwal_kehadiran_guru.dart';
 
 class HomepageGuru extends StatefulWidget {
   const HomepageGuru({super.key});
@@ -12,23 +15,22 @@ class HomepageGuru extends StatefulWidget {
 class _HomepageGuruState extends State<HomepageGuru> {
   int _selectedIndex = 0;
 
-  final List<Widget> _pages = [
-    const Center(child: Text('Beranda')),
-    const Center(
-        child: Text(
-            'Rekapitulasi')), // Placeholder, akan diganti dengan halaman RekapitulasiGuru
-    const Center(child: Text('Jadwal')),
-    const Center(child: Text('Riwayat Kehadiran')),
-    const Center(child: Text('Profil')),
-  ];
-
   void _onItemTapped(int index) {
-    if (index == 1) {
-      // Navigasi ke halaman RekapitulasiGuru
+    if (index == 0) {
       Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const RekapitulasiGuru()),
-      );
+          context, MaterialPageRoute(builder: (context) => HomepageGuru()));
+    } else if (index == 1) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => RekapitulasiGuru()));
+    } else if (index == 2) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => JadwalKehadiranGuru()));
+    } else if (index == 3) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => RiwayatKehadiranGuru()));
+    } else if (index == 4) {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => ProfilGuru()));
     } else {
       setState(() {
         _selectedIndex = index;
