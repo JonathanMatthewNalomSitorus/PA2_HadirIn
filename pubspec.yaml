@@ -67,6 +67,7 @@ flutter:
   - assets/images/logo_hadirin.png
   - assets/images/guru.png
   - assets/images/orangtua.png
+  - assets/images/rekap.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
