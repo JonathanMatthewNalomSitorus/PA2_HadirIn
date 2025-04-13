@@ -18,30 +18,80 @@ class _RekapitulasiGuruState extends State<RekapitulasiGuru> {
   void _onItemTapped(int index) {
     if (index == 0) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomepageGuru()));
+          context, MaterialPageRoute(builder: (context) => const HomepageGuru()));
     } else if (index == 1) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => RekapitulasiGuru()));
+          context, MaterialPageRoute(builder: (context) => const RekapitulasiGuru()));
     } else if (index == 2) {
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => JadwalKehadiranGuru()));
+          MaterialPageRoute(builder: (context) => const JadwalKehadiranGuru()));
     } else if (index == 3) {
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => RiwayatKehadiranGuru()));
+          MaterialPageRoute(builder: (context) => const RiwayatKehadiranGuru()));
     } else if (index == 4) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => ProfilGuru()));
-    } else {
-      setState(() {
-        _selectedIndex = index;
-      });
+          context, MaterialPageRoute(builder: (context) => const ProfilGuru()));
     }
+
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  Widget buildRekapCard(String kelas, String tahunAjaran) {
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFF94BCAC),
+        borderRadius: BorderRadius.circular(16.0),
+        border: Border.all(color: Colors.white, width: 2.0),
+      ),
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            'assets/images/rekap.png',
+            width: 50,
+            height: 50,
+          ),
+          const SizedBox(width: 16.0),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  kelas,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                Text(
+                  tahunAjaran,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Icon(
+            Icons.arrow_forward_ios,
+            color: Colors.white,
+            size: 24.0,
+          ),
+        ],
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5), // Ubah warna background utama
+      backgroundColor: const Color(0xFFF5F5F5),
       body: Column(
         children: [
           Container(
@@ -81,64 +131,32 @@ class _RekapitulasiGuruState extends State<RekapitulasiGuru> {
               ],
             ),
           ),
-
           const SizedBox(height: 16),
-
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: ListView(
                 children: [
                   const SizedBox(height: 16),
-                  DataRekapitulasiWidget(
-                    kelas: 'Kelas 7 - 1',
-                    tahunAjaran: 'Tahun ajaran 2022/2023',
-                    imageUrl: 'assets/images/rekap.png',
-                  ),
+                  buildRekapCard('Kelas 7 - 1', 'Tahun ajaran 2022/2023'),
                   const SizedBox(height: 16),
-                  DataRekapitulasiWidget(
-                    kelas: 'Kelas 7 - 2',
-                    tahunAjaran: 'Tahun ajaran 2022/2023',
-                    imageUrl: 'assets/images/rekap.png',
-                  ),
+                  buildRekapCard('Kelas 7 - 2', 'Tahun ajaran 2022/2023'),
                   const SizedBox(height: 16),
-                  DataRekapitulasiWidget(
-                    kelas: 'Kelas 7 - 3',
-                    tahunAjaran: 'Tahun ajaran 2022/2023',
-                    imageUrl: 'assets/images/rekap.png',
-                  ),
+                  buildRekapCard('Kelas 7 - 3', 'Tahun ajaran 2022/2023'),
                   const SizedBox(height: 16),
-                  DataRekapitulasiWidget(
-                    kelas: 'Kelas 8 - 1',
-                    tahunAjaran: 'Tahun ajaran 2022/2023',
-                    imageUrl: 'assets/images/rekap.png',
-                  ),
+                  buildRekapCard('Kelas 8 - 1', 'Tahun ajaran 2022/2023'),
                   const SizedBox(height: 16),
-                  DataRekapitulasiWidget(
-                    kelas: 'Kelas 8 - 2',
-                    tahunAjaran: 'Tahun ajaran 2022/2023',
-                    imageUrl: 'assets/images/rekap.png',
-                  ),
+                  buildRekapCard('Kelas 8 - 2', 'Tahun ajaran 2022/2023'),
                   const SizedBox(height: 16),
-                  DataRekapitulasiWidget(
-                    kelas: 'Kelas 9 - 1',
-                    tahunAjaran: 'Tahun ajaran 2022/2023',
-                    imageUrl: 'assets/images/rekap.png',
-                  ),
+                  buildRekapCard('Kelas 9 - 1', 'Tahun ajaran 2022/2023'),
                   const SizedBox(height: 16),
-                  DataRekapitulasiWidget(
-                    kelas: 'Kelas 9 - 2',
-                    tahunAjaran: 'Tahun ajaran 2022/2023',
-                    imageUrl: 'assets/images/rekap.png',
-                  ),
-                  const SizedBox(height: 16),
+                  buildRekapCard('Kelas 9 - 2', 'Tahun ajaran 2022/2023'),
                 ],
               ),
             ),
           ),
         ],
       ),
-
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ClipRRect(
@@ -154,77 +172,28 @@ class _RekapitulasiGuruState extends State<RekapitulasiGuru> {
             onTap: _onItemTapped,
             items: const [
               BottomNavigationBarItem(
-                  icon: Icon(LucideIcons.home, size: 20), label: 'Beranda'),
+                icon: Icon(LucideIcons.home),
+                label: 'Beranda',
+              ),
               BottomNavigationBarItem(
-                  icon: Icon(LucideIcons.checkSquare, size: 20),
-                  label: 'Rekapitulasi'),
+                icon: Icon(LucideIcons.book),
+                label: 'Rekapitulasi',
+              ),
               BottomNavigationBarItem(
-                  icon: Icon(LucideIcons.list, size: 20), label: 'Jadwal'),
+                icon: Icon(LucideIcons.calendar),
+                label: 'Jadwal',
+              ),
               BottomNavigationBarItem(
-                  icon: Icon(LucideIcons.history, size: 20),
-                  label: 'Riwayat Kehadiran'),
+                icon: Icon(LucideIcons.clock),
+                label: 'Riwayat',
+              ),
               BottomNavigationBarItem(
-                  icon: Icon(LucideIcons.user, size: 20), label: 'Profil'),
+                icon: Icon(LucideIcons.user),
+                label: 'Profil',
+              ),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class DataRekapitulasiWidget extends StatelessWidget {
-  final String kelas;
-  final String tahunAjaran;
-  final String imageUrl;
-
-  DataRekapitulasiWidget({
-    required this.kelas,
-    required this.tahunAjaran,
-    required this.imageUrl,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: const Color(0xFF94BCAC),
-        borderRadius: BorderRadius.circular(16.0),
-      ),
-      padding: const EdgeInsets.all(16.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Image.asset(
-            imageUrl,
-            width: 50,
-            height: 50,
-          ),
-          const SizedBox(width: 16.0),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  kelas,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
-                  ),
-                ),
-                const SizedBox(height: 8.0),
-                Text(
-                  tahunAjaran,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16.0,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
