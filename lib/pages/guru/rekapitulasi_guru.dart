@@ -157,44 +157,35 @@ class _RekapitulasiGuruState extends State<RekapitulasiGuru> {
           ),
         ],
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(24), topRight: Radius.circular(24)),
-          child: BottomNavigationBar(
-            backgroundColor: const Color(0xFF1B3C2F),
-            type: BottomNavigationBarType.fixed,
-            selectedItemColor: const Color(0xFF94BCAC),
-            unselectedItemColor: Colors.white,
-            elevation: 0,
-            currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
-            items: const [
-              BottomNavigationBarItem(
-                icon: Icon(LucideIcons.home),
-                label: 'Beranda',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(LucideIcons.book),
-                label: 'Rekapitulasi',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(LucideIcons.calendar),
-                label: 'Jadwal',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(LucideIcons.clock),
-                label: 'Riwayat',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(LucideIcons.user),
-                label: 'Profil',
-              ),
-            ],
-          ),
-        ),
-      ),
+           bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(24), topRight: Radius.circular(24)),
+            child: BottomNavigationBar(
+              backgroundColor: const Color(0xFF1B3C2F),
+              type: BottomNavigationBarType.fixed,
+              selectedItemColor: Colors.green,
+              unselectedItemColor: Colors.white,
+              elevation: 0,
+              currentIndex: _selectedIndex,
+              onTap: _onItemTapped,
+              items: const [
+                BottomNavigationBarItem(
+                    icon: Icon(LucideIcons.home, size: 20), label: 'Beranda'),
+                BottomNavigationBarItem(
+                    icon: Icon(LucideIcons.checkSquare, size: 20),
+                    label: 'Rekapitulasi'),
+                BottomNavigationBarItem(
+                    icon: Icon(LucideIcons.list, size: 20), label: 'Jadwal'),
+                BottomNavigationBarItem(
+                    icon: Icon(LucideIcons.history, size: 20),
+                    label: 'Riwayat Kehadiran'),
+                BottomNavigationBarItem(
+                    icon: Icon(LucideIcons.user, size: 20), label: 'Profil'),
+              ],
+            ),
+          )),
     );
   }
 }
