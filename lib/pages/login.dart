@@ -1,4 +1,5 @@
 import 'package:aplikasi_hadirin/pages/guru/homepage_guru.dart';
+import 'package:aplikasi_hadirin/pages/orangtua/ParentApp.dart';
 import 'package:aplikasi_hadirin/pages/orangtua/homepage_orangtua.dart';
 import 'package:flutter/material.dart';
 
@@ -75,7 +76,7 @@ class _LoginState extends State<Login> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const HomepageOrangtua()),
+                        builder: (context) => const ParentDashboard()),
                   );
                 }
               },
