@@ -1,10 +1,10 @@
+import 'package:aplikasi_hadirin/pages/guru/detailkelas_guru.dart';
 import 'package:aplikasi_hadirin/pages/guru/riwayat_kehadiran_guru.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:aplikasi_hadirin/pages/guru/rekapitulasi_guru.dart';
 import 'package:aplikasi_hadirin/pages/guru/profil_guru.dart';
 import 'package:aplikasi_hadirin/pages/guru/jadwal_kehadiran_guru.dart';
-import 'package:aplikasi_hadirin/pages/guru/notifikasi_guru.dart';
 
 class HomepageGuru extends StatefulWidget {
   const HomepageGuru({super.key});
@@ -18,20 +18,23 @@ class _HomepageGuruState extends State<HomepageGuru> {
 
   void _onItemTapped(int index) {
     if (index == 0) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const HomepageGuru()));
+      // tetap di halaman ini
     } else if (index == 1) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const RekapitulasiGuru()));
+          context, MaterialPageRoute(builder: (context) => RekapitulasiGuru()));
     } else if (index == 2) {
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const JadwalKehadiranGuru()));
+          MaterialPageRoute(builder: (context) => JadwalKehadiranGuru()));
     } else if (index == 3) {
       Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const RiwayatKehadiranGuru()));
+          MaterialPageRoute(builder: (context) => RiwayatKehadiranGuru()));
     } else if (index == 4) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const ProfilGuru()));
+          context, MaterialPageRoute(builder: (context) => ProfilGuru()));
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
     }
   }
 
@@ -86,7 +89,7 @@ class _HomepageGuruState extends State<HomepageGuru> {
                     icon: Icon(LucideIcons.list, size: 20), label: 'Jadwal'),
                 BottomNavigationBarItem(
                     icon: Icon(LucideIcons.history, size: 20),
-                    label: 'Riwayat Kehadiran'),
+                    label: 'Riwayat'),
                 BottomNavigationBarItem(
                     icon: Icon(LucideIcons.user, size: 20), label: 'Profil'),
               ],
@@ -106,16 +109,7 @@ class _HomepageGuruState extends State<HomepageGuru> {
           style:
               TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF1B3C2F))),
       subtitle: const Text('NIP : 19780515 2005 1 002'),
-      trailing: IconButton(
-        icon: const Icon(Icons.notifications),
-        onPressed: () {
-          // Navigasi ke halaman NotifikasiGuru ketika tombol ditekan
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const NotifikasiGuru()),
-          );
-        },
-      ),
+      trailing: const Icon(Icons.notifications),
     );
   }
 
@@ -228,11 +222,25 @@ class _HomepageGuruState extends State<HomepageGuru> {
                 ),
               ),
               const SizedBox(width: 16),
-              CircleAvatar(
-                radius: 50,
-                backgroundColor: Color(0xFF1B3C2F),
-                child: const Text('9-2',
-                    style: TextStyle(color: Colors.white, fontSize: 24)),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: const CircleBorder(),
+                  padding: const EdgeInsets.all(0),
+                  backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DetailkelasGuru()),
+                  );
+                },
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Color(0xFF1B3C2F),
+                  child: const Text('9-2',
+                      style: TextStyle(color: Colors.white, fontSize: 24)),
+                ),
               ),
               const SizedBox(width: 28),
             ])

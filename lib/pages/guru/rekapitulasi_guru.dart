@@ -1,3 +1,4 @@
+import 'package:aplikasi_hadirin/pages/guru/datasiswa_guru.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 import 'package:aplikasi_hadirin/pages/guru/riwayat_kehadiran_guru.dart';
@@ -17,17 +18,18 @@ class _RekapitulasiGuruState extends State<RekapitulasiGuru> {
 
   void _onItemTapped(int index) {
     if (index == 0) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const HomepageGuru()));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const HomepageGuru()));
     } else if (index == 1) {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const RekapitulasiGuru()));
+      // tetap di halaman ini
     } else if (index == 2) {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const JadwalKehadiranGuru()));
     } else if (index == 3) {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (context) => const RiwayatKehadiranGuru()));
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const RiwayatKehadiranGuru()));
     } else if (index == 4) {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => const ProfilGuru()));
@@ -138,7 +140,18 @@ class _RekapitulasiGuruState extends State<RekapitulasiGuru> {
               child: ListView(
                 children: [
                   const SizedBox(height: 16),
-                  buildRekapCard('Kelas 7 - 1', 'Tahun ajaran 2022/2023'),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DatasiswaGuru(),
+                        ),
+                      );
+                    },
+                    child:
+                        buildRekapCard('Kelas 7 - 1', 'Tahun ajaran 2022/2023'),
+                  ),
                   const SizedBox(height: 16),
                   buildRekapCard('Kelas 7 - 2', 'Tahun ajaran 2022/2023'),
                   const SizedBox(height: 16),
@@ -157,35 +170,35 @@ class _RekapitulasiGuruState extends State<RekapitulasiGuru> {
           ),
         ],
       ),
-           bottomNavigationBar: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: ClipRRect(
-            borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(24), topRight: Radius.circular(24)),
-            child: BottomNavigationBar(
-              backgroundColor: const Color(0xFF1B3C2F),
-              type: BottomNavigationBarType.fixed,
-              selectedItemColor: Colors.green,
-              unselectedItemColor: Colors.white,
-              elevation: 0,
-              currentIndex: _selectedIndex,
-              onTap: _onItemTapped,
-              items: const [
-                BottomNavigationBarItem(
-                    icon: Icon(LucideIcons.home, size: 20), label: 'Beranda'),
-                BottomNavigationBarItem(
-                    icon: Icon(LucideIcons.checkSquare, size: 20),
-                    label: 'Rekapitulasi'),
-                BottomNavigationBarItem(
-                    icon: Icon(LucideIcons.list, size: 20), label: 'Jadwal'),
-                BottomNavigationBarItem(
-                    icon: Icon(LucideIcons.history, size: 20),
-                    label: 'Riwayat Kehadiran'),
-                BottomNavigationBarItem(
-                    icon: Icon(LucideIcons.user, size: 20), label: 'Profil'),
-              ],
-            ),
-          )),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(24), topRight: Radius.circular(24)),
+          child: BottomNavigationBar(
+            backgroundColor: const Color(0xFF1B3C2F),
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: Colors.green,
+            unselectedItemColor: Colors.white,
+            elevation: 0,
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+            items: const [
+              BottomNavigationBarItem(
+                  icon: Icon(LucideIcons.home, size: 20), label: 'Beranda'),
+              BottomNavigationBarItem(
+                  icon: Icon(LucideIcons.checkSquare, size: 20),
+                  label: 'Rekapitulasi'),
+              BottomNavigationBarItem(
+                  icon: Icon(LucideIcons.list, size: 20), label: 'Jadwal'),
+              BottomNavigationBarItem(
+                  icon: Icon(LucideIcons.history, size: 20), label: 'Riwayat'),
+              BottomNavigationBarItem(
+                  icon: Icon(LucideIcons.user, size: 20), label: 'Profil'),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
