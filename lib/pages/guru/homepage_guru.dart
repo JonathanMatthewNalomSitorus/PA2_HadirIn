@@ -1,4 +1,5 @@
 import 'package:aplikasi_hadirin/pages/guru/detailkelas_guru.dart';
+import 'package:aplikasi_hadirin/pages/guru/notifikasi_guru.dart';
 import 'package:aplikasi_hadirin/pages/guru/riwayat_kehadiran_guru.dart';
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
@@ -109,7 +110,19 @@ class _HomepageGuruState extends State<HomepageGuru> {
           style:
               TextStyle(fontWeight: FontWeight.bold, color: Color(0xFF1B3C2F))),
       subtitle: const Text('NIP : 19780515 2005 1 002'),
-      trailing: const Icon(Icons.notifications),
+      // trailing: const Icon(Icons.notifications),
+      trailing: ElevatedButton(onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context) => NotifikasiGuru()));
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.transparent,
+        iconColor: Colors.black,
+        elevation: 0,
+        shadowColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+      ),
+      child: const Icon(Icons.notifications),
+      ),
     );
   }
 

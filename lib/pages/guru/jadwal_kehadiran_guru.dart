@@ -127,7 +127,7 @@ class _JadwalKehadiranGuruState extends State<JadwalKehadiranGuru> {
                         blurRadius: 4,
                         offset: const Offset(0, 2),
                       ),
-                    ],
+                      ],
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
