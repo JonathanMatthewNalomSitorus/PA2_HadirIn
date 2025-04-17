@@ -3,6 +3,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'notification.dart';
 import 'ChildPermission.dart';
 import 'AttendanceRecap.dart';
+import 'Profil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -69,10 +70,24 @@ class ParentDashboard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const CircleAvatar(
-                      radius: 18,
-                      backgroundColor: Colors.black,
-                      child: Icon(Icons.person, size: 24, color: Colors.white),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const EditProfilScreen(),
+                          ),
+                        );
+                      },
+                      child: const CircleAvatar(
+                        radius: 18,
+                        backgroundColor: Colors.black,
+                        child: Icon(
+                          Icons.person,
+                          size: 24,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                     const SizedBox(width: 8),
                     Text(
@@ -80,7 +95,7 @@ class ParentDashboard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey[800],
+                        color: Colors.grey,
                       ),
                     ),
                   ],
@@ -447,7 +462,14 @@ class ParentDashboard extends StatelessWidget {
           ),
           Expanded(
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const EditProfilScreen(),
+                  ),
+                );
+              },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
